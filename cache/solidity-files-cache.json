@@ -1,10 +1,10 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/app/contracts/Lock.sol": {
-      "lastModificationDate": 1756604085793,
-      "contentHash": "0b7d2d4ca2c222298c3967995010f9b7",
-      "sourceName": "contracts/Lock.sol",
+    "/app/contracts/LiquidityPool.sol": {
+      "lastModificationDate": 1756605688823,
+      "contentHash": "bcf9f3e2db95d1c557eb8f52dbe3044b",
+      "sourceName": "contracts/LiquidityPool.sol",
       "solcConfig": {
         "version": "0.8.24",
         "settings": {
@@ -34,7 +34,7 @@
         "^0.8.24"
       ],
       "artifacts": [
-        "Lock"
+        "LiquidityPool"
       ]
     }
   }
