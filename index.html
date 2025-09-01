@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOIAWOG - Hands-On Intelligent Agents with OpenAI Gym</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <!-- Header com navegação -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav__brand">
+                    <h1>HOIAWOG</h1>
+                    <span>Interactive Learning Platform</span>
+                </div>
+                <ul class="nav__menu">
+                    <li><a href="#home" class="nav__link">Início</a></li>
+                    <li><a href="#agents" class="nav__link">O que é um Agente</a></li>
+                    <li><a href="#math" class="nav__link">Matemática</a></li>
+                    <li><a href="#chapter5" class="nav__link">Capítulo 5</a></li>
+                    <li><a href="#simulator" class="nav__link">Simulador</a></li>
+                </ul>
+                <button class="btn btn--sm theme-toggle" id="themeToggle">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Inicial -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Hands-On Intelligent Agents with OpenAI Gym</h1>
+                    <p class="hero__subtitle">Your guide to developing AI agents using deep reinforcement learning</p>
+                    <div class="hero__info">
+                        <p><strong>Autor:</strong> Praveen Palanisamy</p>
+                        <p><strong>Editora:</strong> Packt Publishing</p>
+                        <p><strong>Ano:</strong> 2018</p>
+                    </div>
+                    <p class="hero__description">
+                        Implemente agentes inteligentes usando PyTorch para resolver problemas clássicos de IA, 
+                        jogar jogos de console como Atari, e executar tarefas como direção autônoma usando o 
+                        simulador de direção CARLA.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#chapter5" class="btn btn--primary btn--lg">Explorar Capítulo 5</a>
+                        <a href="#simulator" class="btn btn--outline btn--lg">Ir para Simulador</a>
+                    </div>
+                </div>
+                
+                <div class="chapters">
+                    <h2>Capítulos do Livro</h2>
+                    <div class="chapters__grid">
+                        <div class="chapter-card">
+                            <div class="chapter-card__icon">👾</div>
+                            <h3>Capítulo 1</h3>
+                            <p>Introduction to Intelligent Agents and Learning Environments</p>
+                            <span class="status status--success">melhorado</span>
+                        </div>
+                        <div class="chapter-card">
+                            <div class="chapter-card__icon">🧠</div>
+                            <h3>Capítulo 2</h3>
+                            <p>Reinforcement Learning and Deep Reinforcement Learning</p>
+                            <span class="status status--info">disponível</span>
+                        </div>
+                        <div class="chapter-card">
+                            <div class="chapter-card__icon">🏋️</div>
+                            <h3>Capítulo 3</h3>
+                            <p>Getting started with OpenAI Gym and Deep Reinforcement Learning</p>
+                            <span class="status status--info">disponível</span>
+                        </div>
+                        <div class="chapter-card">
+                            <div class="chapter-card__icon">🔍</div>
+                            <h3>Capítulo 4</h3>
+                            <p>Exploring the Gym and its features</p>
+                            <span class="status status--info">disponível</span>
+                        </div>
+                        <div class="chapter-card chapter-card--featured">
+                            <div class="chapter-card__icon">🚗</div>
+                            <h3>Capítulo 5</h3>
+                            <p>Implementing your first learning agent -- Solving the Mountain Car problem</p>
+                            <span class="status status--success">melhorado</span>
+                            <div class="chapter-card__badge">FOCO</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção O que é um Agente -->
+        <section id="agents" class="section">
+            <div class="container">
+                <h2 class="section__title">O que é um Agente Inteligente?</h2>
+                <div class="section__content">
+                    <div class="agent-definition">
+                        <p class="lead">
+                            Um agente inteligente é uma entidade que percebe seu ambiente através de sensores 
+                            e age sobre esse ambiente através de atuadores para maximizar seu desempenho.
+                        </p>
+                    </div>
+                    
+                    <div class="agent-components">
+                        <h3>Componentes de um Agente</h3>
+                        <div class="components-grid">
+                            <div class="component-card">
+                                <h4>Sensores</h4>
+                                <p>Coletam informações do ambiente</p>
+                            </div>
+                            <div class="component-card">
+                                <h4>Função do Agente</h4>
+                                <p>Mapeia percepções para ações</p>
+                            </div>
+                            <div class="component-card">
+                                <h4>Atuadores</h4>
+                                <p>Executam ações no ambiente</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-types">
+                        <h3>Tipos de Agentes</h3>
+                        <div class="types-grid">
+                            <div class="type-card">
+                                <h4>Agente Reflexivo Simples</h4>
+                                <p>Seleciona ações baseadas apenas na percepção atual</p>
+                                <div class="example">
+                                    <strong>Exemplo:</strong> Termostato que liga/desliga baseado apenas na temperatura atual
+                                </div>
+                            </div>
+                            <div class="type-card">
+                                <h4>Agente Baseado em Modelo</h4>
+                                <p>Mantém um modelo interno do mundo</p>
+                                <div class="example">
+                                    <strong>Exemplo:</strong> GPS que conhece o mapa e planeja rotas
+                                </div>
+                            </div>
+                            <div class="type-card">
+                                <h4>Agente Baseado em Objetivo</h4>
+                                <p>Tem objetivos específicos a alcançar</p>
+                                <div class="example">
+                                    <strong>Exemplo:</strong> Robô aspirador que quer limpar toda a casa
+                                </div>
+                            </div>
+                            <div class="type-card">
+                                <h4>Agente Utilitário</h4>
+                                <p>Maximiza uma função de utilidade</p>
+                                <div class="example">
+                                    <strong>Exemplo:</strong> Sistema de recomendação que maximiza satisfação do usuário
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Matemática -->
+        <section id="math" class="section section--alt">
+            <div class="container">
+                <h2 class="section__title">Fundamentos Matemáticos</h2>
+                <div class="section__content">
+                    <div class="math-section">
+                        <h3>Q-Learning</h3>
+                        <div class="equation-card">
+                            <div class="equation">
+                                $$Q(s,a) = Q(s,a) + \alpha[r + \gamma \max_{a'} Q(s',a') - Q(s,a)]$$
+                            </div>
+                            <p>A equação fundamental do Q-Learning atualiza o valor Q baseado na recompensa recebida e no valor máximo do próximo estado.</p>
+                        </div>
+                        
+                        <div class="parameters">
+                            <h4>Parâmetros Importantes</h4>
+                            <div class="parameter-cards">
+                                <div class="parameter-card">
+                                    <h5>Taxa de Aprendizado (α)</h5>
+                                    <p>Controla o quanto o agente aprende com cada experiência</p>
+                                    <div class="param-range">Faixa: 0.0 - 1.0 | Recomendado: 0.1 - 0.3</div>
+                                </div>
+                                <div class="parameter-card">
+                                    <h5>Fator de Desconto (γ)</h5>
+                                    <p>Importância de recompensas futuras vs imediatas</p>
+                                    <div class="param-range">Faixa: 0.0 - 1.0 | Recomendado: 0.9 - 0.99</div>
+                                </div>
+                                <div class="parameter-card">
+                                    <h5>Epsilon (ε)</h5>
+                                    <p>Probabilidade de exploração (ações aleatórias)</p>
+                                    <div class="param-range">Faixa: 0.0 - 1.0 | Recomendado: 0.1 - 0.3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="math-section">
+                        <h3>Equação de Bellman</h3>
+                        <div class="equation-card">
+                            <div class="equation">
+                                $$V(s) = \max_a \sum_{s'} P(s'|s,a)[R(s,a,s') + \gamma V(s')]$$
+                            </div>
+                            <p>A equação de Bellman define o valor de um estado como o máximo valor esperado de todas as ações possíveis.</p>
+                        </div>
+                    </div>
+
+                    <div class="math-section">
+                        <h3>Markov Decision Process (MDP)</h3>
+                        <p>Um MDP é definido pela tupla (S, A, P, R, γ):</p>
+                        <div class="mdp-components">
+                            <div class="mdp-component">
+                                <strong>S:</strong> Estados
+                            </div>
+                            <div class="mdp-component">
+                                <strong>A:</strong> Ações
+                            </div>
+                            <div class="mdp-component">
+                                <strong>P:</strong> Transições
+                            </div>
+                            <div class="mdp-component">
+                                <strong>R:</strong> Recompensas
+                            </div>
+                            <div class="mdp-component">
+                                <strong>γ:</strong> Desconto
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capítulo 5 -->
+        <section id="chapter5" class="section">
+            <div class="container">
+                <h2 class="section__title">Capítulo 5: Mountain Car Problem</h2>
+                <div class="section__content">
+                    <div class="problem-explanation">
+                        <h3>O Problema</h3>
+                        <p class="lead">
+                            Um carro precisa subir uma colina íngreme, mas seu motor não é forte o suficiente 
+                            para subir diretamente. O carro deve ganhar impulso indo para frente e para trás.
+                        </p>
+                        
+                        <div class="problem-details">
+                            <div class="detail-card">
+                                <h4>Estado</h4>
+                                <p>Posição e velocidade do carro</p>
+                                <ul>
+                                    <li>Posição: [-1.2, 0.6]</li>
+                                    <li>Velocidade: [-0.07, 0.07]</li>
+                                </ul>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Ações</h4>
+                                <ul>
+                                    <li>0: Acelerar para esquerda</li>
+                                    <li>1: Não acelerar</li>
+                                    <li>2: Acelerar para direita</li>
+                                </ul>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Recompensa</h4>
+                                <p>-1 por step, 0 ao atingir o objetivo</p>
+                                <p><strong>Objetivo:</strong> Chegar ao topo (posição ≥ 0.5)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulador -->
+        <section id="simulator" class="section section--alt">
+            <div class="container">
+                <h2 class="section__title">Simulador Interativo Mountain Car</h2>
+                <div class="simulator-container">
+                    <div class="simulator-left">
+                        <div class="controls-panel">
+                            <h3>Controles</h3>
+                            <div class="control-group">
+                                <label for="alpha">Taxa de Aprendizado (α): <span id="alphaValue">0.1</span></label>
+                                <input type="range" id="alpha" min="0.01" max="1" step="0.01" value="0.1">
+                            </div>
+                            <div class="control-group">
+                                <label for="gamma">Fator de Desconto (γ): <span id="gammaValue">0.99</span></label>
+                                <input type="range" id="gamma" min="0.1" max="1" step="0.01" value="0.99">
+                            </div>
+                            <div class="control-group">
+                                <label for="epsilon">Epsilon (ε): <span id="epsilonValue">0.1</span></label>
+                                <input type="range" id="epsilon" min="0" max="1" step="0.01" value="0.1">
+                            </div>
+                            <div class="control-buttons">
+                                <button id="startBtn" class="btn btn--primary">Iniciar</button>
+                                <button id="pauseBtn" class="btn btn--secondary" disabled>Pausar</button>
+                                <button id="resetBtn" class="btn btn--outline">Resetar</button>
+                                <button id="stepBtn" class="btn btn--outline">Passo a Passo</button>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-panel">
+                            <h3>Estatísticas</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-label">Episódio:</span>
+                                    <span class="stat-value" id="episode">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Steps:</span>
+                                    <span class="stat-value" id="steps">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Recompensa Total:</span>
+                                    <span class="stat-value" id="totalReward">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Posição:</span>
+                                    <span class="stat-value" id="position">-0.5</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Velocidade:</span>
+                                    <span class="stat-value" id="velocity">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="simulator-right">
+                        <div class="canvas-container">
+                            <canvas id="mountainCarCanvas" width="600" height="300"></canvas>
+                        </div>
+                        
+                        <div class="charts-container">
+                            <div class="chart-container" style="position: relative; height: 200px;">
+                                <canvas id="rewardChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="qtable-container">
+                    <h3>Q-Table (Sample)</h3>
+                    <div class="qtable-wrapper">
+                        <table id="qtable" class="qtable">
+                            <thead>
+                                <tr>
+                                    <th>Estado</th>
+                                    <th>Esquerda</th>
+                                    <th>Parar</th>
+                                    <th>Direita</th>
+                                    <th>Melhor Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="qtableBody">
+                                <!-- Preenchido dinamicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 HOIAWOG Interactive Learning Platform. Baseado no livro de Praveen Palanisamy.</p>
+        </div>
+    </footer>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
