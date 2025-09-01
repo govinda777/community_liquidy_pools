@@ -158,6 +158,41 @@ Não há valor mínimo! A ideia é ser inclusivo para investidores de todos os p
 
 </details>
 
+<details>
+<summary>🤔 Como a DAO (Organização Autônoma Descentralizada) funciona?</summary>
+
+A nossa DAO foi projetada para ser o centro da tomada de decisões da comunidade. Ela opera de forma transparente e democrática, permitindo que todos os membros com participação (tokens de governança) possam propor e votar em melhorias para a plataforma. O processo funciona da seguinte forma:
+1.  **Proposta**: Qualquer membro pode criar uma proposta de melhoria, como a criação de um novo pool de liquidez, uma alteração nas taxas ou uma atualização no sistema.
+2.  **Debate**: A proposta é aberta para debate na comunidade (através do nosso Discord e fórum) para que todos possam dar sua opinião.
+3.  **Votação**: Após o período de debate, a proposta é colocada em votação. O poder de voto de cada membro é proporcional à sua participação na plataforma.
+4.  **Execução**: Se a proposta atingir o quórum mínimo e a maioria de votos favoráveis, ela é automaticamente executada pelo smart contract.
+
+</details>
+
+<details>
+<summary>💸 Como eu adiciono fundos na minha carteira?</summary>
+
+Para participar dos pools, você precisa ter fundos na sua carteira de criptomoedas conectada à nossa plataforma. Siga estes passos:
+1.  **Conecte sua Carteira**: Certifique-se de que sua carteira de criptomoedas (como MetaMask, Trust Wallet, etc.) está conectada à nossa plataforma.
+2.  **Acesse a Seção "Carteira"**: No seu painel de usuário, vá para a seção "Carteira" ou "Fundos".
+3.  **Escolha o Ativo**: Selecione a criptomoeda que você deseja depositar.
+4.  **Envie os Fundos**: Você verá um endereço de depósito. Envie as criptomoedas da sua corretora (exchange) ou de outra carteira para este endereço.
+5.  **Confirmação**: Aguarde a confirmação da transação na blockchain. Assim que confirmada, os fundos aparecerão no seu saldo na plataforma.
+
+</details>
+
+<details>
+<summary>⚠️ Por que eu só posso enviar fundos de contas da minha titularidade?</summary>
+
+Esta é uma medida de segurança e conformidade (compliance) extremamente importante. Enviar fundos de uma conta de mesma titularidade (ou seja, uma conta que também está no seu nome) garante:
+-   **Segurança**: Evita que seus fundos sejam bloqueados por suspeita de fraude ou lavagem de dinheiro.
+-   **Conformidade Regulatória**: Ajuda a plataforma e os usuários a estarem em conformidade com as leis e regulações locais e internacionais.
+-   **Rastreabilidade**: Garante que os fundos possam ser facilmente rastreados em caso de qualquer problema.
+<br>
+**Atenção**: O envio de fundos de contas de terceiros pode resultar no bloqueio permanente dos fundos e/ou da sua conta na plataforma.
+
+</details>
+
 ---
 
 ## 📈 Roadmap
